@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microgrid-api
+spec:
+  replicas: 2 # Rendu instances run aagum (High Availability)
+  selector:
+    matchLabels:
+      app: microgrid-api
+  template:
+    metadata:
+      labels:
+        app: microgrid-api
+    spec:
+      containers:
+      - name: api
+        image: your-docker-hub/microgrid-api:v1
+        ports:
+        - containerPort: 8000

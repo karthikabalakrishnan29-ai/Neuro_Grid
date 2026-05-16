@@ -1,0 +1,8 @@
+graph LR
+    Input((Grid Metrics)) --> Sensor[Sense: IoT Data]
+    Sensor --> Brain[Think: EMS & Optimization]
+    Brain --> Decision{Action Needed?}
+    Decision -- Yes --> Actuator[Act: Relay/Inverter Control]
+    Decision -- No --> Monitor[Continue Monitoring]
+    Actuator --> Feedback((New Grid State))
+    Feedback --> Input

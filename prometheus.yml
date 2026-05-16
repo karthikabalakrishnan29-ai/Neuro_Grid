@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 5s # Every 5 seconds data-va collect pannum
+
+scrape_configs:
+  - job_name: 'microgrid_digital_twin'
+    static_configs:
+      - targets: ['localhost:9090'] # metrics_collector.py run aagura address
+
+  - job_name: 'api_layer'
+    static_configs:
+      - targets: ['localhost:8000'] # FastAPI metrics (if enabled)

@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant S as Sensors (IoT)
+    participant M as MQTT Broker
+    participant T as Digital Twin (Core)
+    participant A as AI Model (Intelligence)
+    participant D as Dashboard
+
+    S->>M: Raw Telemetry (Voltage, Current)
+    M->>T: Cleaned Data Stream
+    T->>A: Feature Inputs
+    A->>T: Predictions / Anomaly Status
+    T->>D: Real-time JSON State
+    D->>D: Render 3D Maps & Plots

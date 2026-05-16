@@ -1,0 +1,26 @@
+graph TD
+    subgraph Visualization_Layer
+        A[Streamlit Dashboard]
+    end
+
+    subgraph API_Layer
+        B[FastAPI / REST Endpoints]
+    end
+
+    subgraph Intelligence_Layer
+        C[LSTM Forecasting]
+        D[Anomaly Detection]
+        E[EMS Optimizer]
+    end
+
+    subgraph IoT_Layer
+        F[MQTT Broker]
+        G[Sensor Nodes]
+    end
+
+    G -->|Publish| F
+    F -->|Telemetry| B
+    B -->|Data| A
+    B <--> C
+    B <--> D
+    B <--> E
